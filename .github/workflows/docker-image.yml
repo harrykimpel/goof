@@ -36,7 +36,7 @@ jobs:
     - name: Snyk Open Source Scanning
       run: snyk test --org=github-dfl --sarif-file-output=snyk-oss.sarif
       continue-on-error: true
-    - name: Upload result to GitHub Code Scanning
+    - name: Upload result to GitHub Security Center
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: snyk-oss.sarif
@@ -44,7 +44,7 @@ jobs:
     - name: Snyk Code Scanning
       run: snyk code test --org=github-dfl --sarif-file-output=snyk-code.sarif
       continue-on-error: true
-    - name: Upload result to GitHub Code Scanning
+    - name: Upload result to GitHub Security Center
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: snyk-code.sarif
@@ -55,7 +55,7 @@ jobs:
     - name: Snyk Container Scanning
       run: snyk container test --org=github-dfl --file=Dockerfile --sarif-file-output=snyk-container.sarif $container_image
       continue-on-error: true
-    - name: Upload result to GitHub Code Scanning
+    - name: Upload result to GitHub Security Center
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: snyk-container.sarif
@@ -63,7 +63,7 @@ jobs:
     - name: Snyk Infrastructure-as-Code Scanning
       run: snyk iac test --org=github-dfl --sarif-file-output=snyk-iac.sarif
       continue-on-error: true
-    - name: Upload result to GitHub Code Scanning
+    - name: Upload result to GitHub Security Center
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: snyk-iac.sarif
